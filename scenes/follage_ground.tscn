@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://g4ggekyihuub"]
+
+[ext_resource type="PackedScene" uid="uid://bh0xqw2i5xx1h" path="res://asset_trees/follage_ground.glb" id="1_0m6dt"]
+[ext_resource type="Texture2D" uid="uid://8rrf1njim3bv" path="res://asset_trees/follage_ground_folhas_chao.png" id="2_wqgrv"]
+
+[sub_resource type="Shader" id="Shader_exgwt"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.1.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_disabled,diffuse_burley,specular_schlick_ggx, world_vertex_coords;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest_mipmap,repeat_enable;
+uniform float alpha_scissor_threshold;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_nearest_mipmap,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_nearest_mipmap,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+group_uniforms wind;
+uniform sampler2D noise_tex;
+uniform float wind_speed = .1;
+uniform float wind_strength = .01;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+ 
+	float offset = TIME * wind_speed;
+	float noise = texture(noise_tex, NODE_POSITION_WORLD.xz-offset).r;
+	noise -= .5;
+	noise *= wind_strength;
+	VERTEX.xy += noise * length(VERTEX.y-NODE_POSITION_WORLD.y);
+}
+
+
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	vec4 albedo_tex = texture(texture_albedo,base_uv);
+	albedo_tex *= COLOR;
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+	ALPHA *= albedo.a * albedo_tex.a;
+	ALPHA_SCISSOR_THRESHOLD = alpha_scissor_threshold;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fkcfr"]
+frequency = 0.005
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c8kk5"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_fkcfr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32kok"]
+resource_name = "folhas_material"
+render_priority = 0
+shader = SubResource("Shader_exgwt")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("2_wqgrv")
+shader_parameter/wind_speed = 0.1
+shader_parameter/wind_strength = 0.2
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_c8kk5")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_47hvr"]
+_surfaces = [{
+"aabb": AABB(-0.7, -1.09945e-07, -0.606218, 1.4, 1.4, 1.21244),
+"format": 4097,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"name": "folhas_material",
+"primitive": 3,
+"vertex_count": 12,
+"vertex_data": PackedByteArray(50, 51, 179, 62, 76, 192, 192, 38, 23, 49, 27, 191, 48, 51, 179, 190, 76, 192, 192, 38, 23, 49, 27, 63, 48, 51, 179, 62, 51, 51, 179, 63, 24, 49, 27, 191, 50, 51, 179, 190, 51, 51, 179, 63, 22, 49, 27, 63, 52, 51, 51, 191, 249, 26, 236, 179, 0, 0, 128, 179, 52, 51, 51, 63, 218, 150, 116, 179, 0, 0, 0, 51, 52, 51, 51, 191, 51, 51, 179, 63, 0, 0, 0, 128, 52, 51, 51, 63, 51, 51, 179, 63, 0, 0, 128, 51, 52, 51, 179, 62, 220, 150, 116, 179, 24, 49, 27, 63, 53, 51, 179, 190, 248, 26, 236, 179, 22, 49, 27, 191, 53, 51, 179, 62, 51, 51, 179, 63, 23, 49, 27, 63, 52, 51, 179, 190, 51, 51, 179, 63, 24, 49, 27, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4qsyh"]
+resource_name = "follage_ground_Plane_002"
+_surfaces = [{
+"aabb": AABB(-0.7, -1.09945e-07, -0.606218, 1.4, 1.4, 1.21244),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 4119,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 5, 0, 4, 0, 6, 0, 7, 0, 8, 0, 11, 0, 9, 0, 8, 0, 10, 0, 11, 0),
+"material": SubResource("ShaderMaterial_32kok"),
+"name": "folhas_material",
+"primitive": 3,
+"vertex_count": 12,
+"vertex_data": PackedByteArray(50, 51, 179, 62, 76, 192, 192, 38, 23, 49, 27, 191, 0, 0, 37, 81, 37, 81, 255, 191, 48, 51, 179, 190, 76, 192, 192, 38, 23, 49, 27, 63, 0, 0, 37, 81, 37, 81, 255, 191, 48, 51, 179, 62, 51, 51, 179, 63, 24, 49, 27, 191, 0, 0, 37, 81, 37, 81, 255, 191, 50, 51, 179, 190, 51, 51, 179, 63, 22, 49, 27, 63, 0, 0, 37, 81, 37, 81, 255, 191, 52, 51, 51, 191, 249, 26, 236, 179, 0, 0, 128, 179, 255, 127, 255, 127, 255, 255, 255, 191, 52, 51, 51, 63, 218, 150, 116, 179, 0, 0, 0, 51, 255, 127, 255, 127, 255, 255, 255, 191, 52, 51, 51, 191, 51, 51, 179, 63, 0, 0, 0, 128, 255, 127, 255, 127, 255, 255, 255, 191, 52, 51, 51, 63, 51, 51, 179, 63, 0, 0, 128, 51, 255, 127, 255, 127, 255, 255, 255, 191, 52, 51, 179, 62, 220, 150, 116, 179, 24, 49, 27, 63, 255, 255, 37, 81, 0, 0, 108, 151, 53, 51, 179, 190, 248, 26, 236, 179, 22, 49, 27, 191, 255, 255, 37, 81, 0, 0, 108, 151, 53, 51, 179, 62, 51, 51, 179, 63, 23, 49, 27, 63, 255, 255, 37, 81, 0, 0, 146, 232, 52, 51, 179, 190, 51, 51, 179, 63, 24, 49, 27, 191, 255, 255, 37, 81, 0, 0, 108, 151)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_47hvr")
+
+[node name="follage_ground" instance=ExtResource("1_0m6dt")]
+
+[node name="follage_ground2" parent="." index="0"]
+mesh = SubResource("ArrayMesh_4qsyh")

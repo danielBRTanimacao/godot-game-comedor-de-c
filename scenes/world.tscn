@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpoxpsob4xepc"]
+
+[ext_resource type="PackedScene" uid="uid://bx5apj7uspiwn" path="res://asset_rua/rua.glb" id="1_5hx3j"]
+
+[sub_resource type="Sky" id="Sky_2ocvr"]
+
+[sub_resource type="Environment" id="Environment_dconv"]
+background_mode = 2
+sky = SubResource("Sky_2ocvr")
+tonemap_mode = 3
+fog_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="rua" parent="." instance=ExtResource("1_5hx3j")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dconv")
