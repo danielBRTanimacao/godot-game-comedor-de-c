@@ -1,5 +1,5 @@
-# godot-game-comedor-de-c#
-<h2>fan game: jogo do comedor de c#</h2>
+# comedor de c# game
+<h3>fan game: jogo do comedor de c#</h3>
 um pouco sobre o jogo
 foto game
 canais
