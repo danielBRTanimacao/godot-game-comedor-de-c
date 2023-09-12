@@ -5,7 +5,7 @@
 Jogo feito na godot engine, ainda estou aprendendo a criar jogos, e a maior parte desse jogo foi feita utilizando de tutoriais...
 uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuito...
 
-softwares | sites utilizados 
+### softwares | sites utilizados 
 - photoshop
 - blender
 - godot engine
@@ -18,6 +18,6 @@ softwares | sites utilizados
 
 canais
 
-- <a href="url">Canal kleberiano</a>
-- <a href="url">Meu canal :3</a>
-- <a href="url">Canal</a>
+- <a href="https://www.youtube.com/@CanalKleberiano">Canal kleberiano</a>
+- <a href="https://www.youtube.com/channel/UCS88R5WOovJNe3NtS0OhUfg">Meu canal :3</a>
+- <a href="https://www.youtube.com/@MobGenerico">Canal</a>
