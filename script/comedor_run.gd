@@ -28,5 +28,5 @@ func _process(delta):
 
 func _target_in_range():
 	if global_position.distance_to(player.global_position) < ATTACK_RANGE:
-		get_tree().change_scene_to_file("res://scenes/boneco.tscn")
+		get_tree().change_scene_to_file("res://scenes/boneco.tscn") # vc morreu
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

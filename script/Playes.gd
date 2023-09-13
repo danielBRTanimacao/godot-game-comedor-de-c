@@ -9,6 +9,7 @@ var gravity = 9.8
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var collider = $ColliderOrb
 
 const BASE_FOV = 75.0
 const FOV_CHANGE = 1.5
@@ -45,3 +46,4 @@ func _physics_process(delta):
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 
 	move_and_slide()
+
