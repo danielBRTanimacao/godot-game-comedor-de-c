@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bqfvkefli7668"]
+[gd_scene load_steps=30 format=3 uid="uid://bqfvkefli7668"]
 
 [ext_resource type="Texture2D" uid="uid://gtqh4f87a6vy" path="res://assets_effects/ground/ground.png" id="1_1tewc"]
 [ext_resource type="Texture2D" uid="uid://6yormv501ev" path="res://material/Scene_-_Root_baseColor.png" id="1_ws4dm"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://b7t3sm6k1cyn" path="res://comedor_run_pele.png" id="7_65rlo"]
 [ext_resource type="Script" path="res://script/comedor_run.gd" id="7_igtx7"]
 [ext_resource type="Texture2D" uid="uid://bw4cdjr4l4u6y" path="res://textura_comedor/pele.png" id="8_g4u40"]
+[ext_resource type="PackedScene" uid="uid://d0mu7q2dub85c" path="res://scenes/orb.tscn" id="11_0iqs7"]
+[ext_resource type="Script" path="res://script/hud.gd" id="12_c4pdy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fxv6"]
 size = Vector3(1, 15, 300)
@@ -733,6 +735,8 @@ _data = {
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cohcf"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7ltf2"]
+
 [node name="Wolrd_game" type="Node3D"]
 
 [node name="Map" type="Node3D" parent="."]
@@ -1190,7 +1194,7 @@ omni_range = 15.0
 path_height_offset = 0.35
 
 [node name="Playes" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.09575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8236, 0, 116.676)
 script = ExtResource("4_f127e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Playes"]
@@ -1209,3 +1213,79 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="SpotLight3D" type="SpotLight3D" parent="Playes/Head/Camera3D"]
 spot_range = 15.0
 spot_angle = 30.0
+
+[node name="ColliderOrb" type="Area3D" parent="Playes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 9
+
+[node name="Collision" type="CollisionShape3D" parent="Playes/ColliderOrb"]
+shape = SubResource("CylinderShape3D_7ltf2")
+
+[node name="OrbContainer" type="Node3D" parent="."]
+
+[node name="Orb" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 107.276)
+
+[node name="Orb2" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 104.535)
+
+[node name="Orb3" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 101.47)
+
+[node name="Orb4" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 98.0665)
+
+[node name="Orb5" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 95.2272)
+
+[node name="Orb6" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 92.9955)
+
+[node name="Orb7" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 90.4571)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("12_c4pdy")
+
+[node name="Container" type="MarginContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -34.0
+offset_right = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 40
+
+[node name="orbs_container" type="HBoxContainer" parent="HUD/Control/Container"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="orbs_count" type="Label" parent="HUD/Control/Container/orbs_container"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="orbs_count2" type="Label" parent="HUD/Control/Container/orbs_container"]
+layout_mode = 2
+text = "| 7"
+horizontal_alignment = 1
+vertical_alignment = 1
