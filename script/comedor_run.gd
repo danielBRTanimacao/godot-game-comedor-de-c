@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 var player = null
-const SPEED = 4.0
+var SPEED = 6.0
 const ATTACK_RANGE = 1
 
 @export var player_path = "../../../Playes"
@@ -24,6 +24,13 @@ func _process(delta):
 	
 	_target_in_range()
 	move_and_slide()
+
+	if Global.orb == 3:
+		SPEED = 6.5
+	if Global.orb == 4:
+		SPEED = 7
+	if Global.orb == 6:
+		SPEED = 8.5
 
 
 func _target_in_range():
