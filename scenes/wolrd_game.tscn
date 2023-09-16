@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bqfvkefli7668"]
+[gd_scene load_steps=33 format=3 uid="uid://bqfvkefli7668"]
 
 [ext_resource type="Texture2D" uid="uid://gtqh4f87a6vy" path="res://assets_effects/ground/ground.png" id="1_1tewc"]
 [ext_resource type="Texture2D" uid="uid://6yormv501ev" path="res://material/Scene_-_Root_baseColor.png" id="1_ws4dm"]
@@ -9,9 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dg4p8joo2dlc4" path="res://scenes/campfire.tscn" id="6_rim11"]
 [ext_resource type="Texture2D" uid="uid://b7t3sm6k1cyn" path="res://comedor_run_pele.png" id="7_65rlo"]
 [ext_resource type="Script" path="res://script/comedor_run.gd" id="7_igtx7"]
+[ext_resource type="AudioStream" uid="uid://71jl3u0scybe" path="res://sound_effects_music/fogueira.mp3" id="7_xhacs"]
 [ext_resource type="Texture2D" uid="uid://bw4cdjr4l4u6y" path="res://textura_comedor/pele.png" id="8_g4u40"]
 [ext_resource type="PackedScene" uid="uid://d0mu7q2dub85c" path="res://scenes/orb.tscn" id="11_0iqs7"]
+[ext_resource type="AudioStream" uid="uid://7eo0qh5qfq1b" path="res://sound_effects_music/comdedor.mp3" id="11_4xp02"]
 [ext_resource type="Script" path="res://script/hud.gd" id="12_c4pdy"]
+[ext_resource type="Texture2D" uid="uid://biqye6sli6lkh" path="res://asset_orbs/icon_mac_pixel.png" id="13_1kkij"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8fxv6"]
 size = Vector3(1, 15, 300)
@@ -816,6 +819,10 @@ light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
 
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire"]
+stream = ExtResource("7_xhacs")
+autoplay = true
+
 [node name="campfire2" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.32605, 0, -68.1606)
 
@@ -824,6 +831,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430242, 0)
 light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
+
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire2"]
+stream = ExtResource("7_xhacs")
+autoplay = true
 
 [node name="campfire3" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -80)
@@ -834,6 +845,10 @@ light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
 
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire3"]
+stream = ExtResource("7_xhacs")
+autoplay = true
+
 [node name="campfire4" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, 50)
 
@@ -842,6 +857,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430242, 0)
 light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
+
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire4"]
+stream = ExtResource("7_xhacs")
+autoplay = true
 
 [node name="campfire5" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.7492, 0, 77.7646)
@@ -852,6 +871,10 @@ light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
 
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire5"]
+stream = ExtResource("7_xhacs")
+autoplay = true
+
 [node name="campfire6" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.719, 0, -31.1652)
 
@@ -860,6 +883,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430242, 0)
 light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
+
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire6"]
+stream = ExtResource("7_xhacs")
+autoplay = true
 
 [node name="campfire7" parent="Map/NavigationRegion3D/Campfires" instance=ExtResource("6_rim11")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.2193, 0, -121.433)
@@ -870,8 +897,12 @@ light_color = Color(0.870588, 0.909804, 0, 1)
 light_energy = 6.0
 omni_range = 15.0
 
+[node name="fogueira" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Campfires/campfire7"]
+stream = ExtResource("7_xhacs")
+autoplay = true
+
 [node name="Comedor" type="CharacterBody3D" parent="Map/NavigationRegion3D"]
-transform = Transform3D(-0.19, 0, -1.66103e-08, 0, 0.19, 0, 1.66103e-08, 0, -0.19, 1.48467, 0, -27.1222)
+transform = Transform3D(-0.19, 0, -1.66103e-08, 0, 0.19, 0, 1.66103e-08, 0, -0.19, -44.9593, 0, -127.829)
 script = ExtResource("7_igtx7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/NavigationRegion3D/Comedor"]
@@ -1193,6 +1224,12 @@ omni_range = 15.0
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="Map/NavigationRegion3D/Comedor/comedor_run"]
 path_height_offset = 0.35
 
+[node name="ccomedor_audio" type="AudioStreamPlayer3D" parent="Map/NavigationRegion3D/Comedor"]
+stream = ExtResource("11_4xp02")
+max_db = 4.0
+autoplay = true
+max_distance = 30.0
+
 [node name="Playes" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8236, 0, 116.676)
 script = ExtResource("4_f127e")
@@ -1227,22 +1264,22 @@ shape = SubResource("CylinderShape3D_7ltf2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 107.276)
 
 [node name="Orb2" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 104.535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.1138, 0.65, 103.935)
 
 [node name="Orb3" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 101.47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.5365, 0.65, 40.1993)
 
 [node name="Orb4" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 98.0665)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.2191, 0.65, -80.1377)
 
 [node name="Orb5" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 95.2272)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.881, 0.65, -104.737)
 
 [node name="Orb6" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 92.9955)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.49916, 0.65, 6.36101)
 
 [node name="Orb7" parent="OrbContainer" instance=ExtResource("11_0iqs7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2201, 0.65, 90.4571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.987, 0.65, 22.7671)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -1259,16 +1296,8 @@ script = ExtResource("12_c4pdy")
 
 [node name="Container" type="MarginContainer" parent="HUD/Control"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = -34.0
-offset_right = 9.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_right = 41.0
+offset_bottom = 86.0
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 0
@@ -1276,7 +1305,12 @@ theme_override_constants/margin_bottom = 40
 
 [node name="orbs_container" type="HBoxContainer" parent="HUD/Control/Container"]
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control/Container/orbs_container"]
+layout_mode = 2
+texture = ExtResource("13_1kkij")
 
 [node name="orbs_count" type="Label" parent="HUD/Control/Container/orbs_container"]
 layout_mode = 2

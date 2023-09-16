@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://lwbvdgl18yjp"]
+[gd_scene load_steps=15 format=3 uid="uid://lwbvdgl18yjp"]
 
 [ext_resource type="Texture2D" uid="uid://b7t3sm6k1cyn" path="res://comedor_run_pele.png" id="1_vg78v"]
 [ext_resource type="Texture2D" uid="uid://bw4cdjr4l4u6y" path="res://textura_comedor/pele.png" id="2_in3a7"]
 [ext_resource type="Script" path="res://script/Menu.gd" id="4_233g7"]
 [ext_resource type="PackedScene" uid="uid://cpoxpsob4xepc" path="res://scenes/world.tscn" id="4_ucim3"]
+[ext_resource type="AudioStream" uid="uid://cait4hnbhij3d" path="res://sound_effects_music/music_main_game/8bits-comedor.mp3" id="5_jm55v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32wvs"]
 resource_name = "Material.001"
@@ -1123,6 +1124,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Sair"
 flat = true
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jm55v")
+autoplay = true
 
 [connection signal="pressed" from="Camera3D/Menu/Madby/Button" to="Camera3D/Menu" method="_on_button_pressed"]
 [connection signal="pressed" from="Camera3D/Menu/Main/HBoxContainer/VBoxContainer/Play" to="Camera3D/Menu" method="_on_play_pressed"]
