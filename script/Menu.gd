@@ -6,7 +6,7 @@ func _on_play_pressed():
 
 
 func _on_credits_pressed():
-	pass # Tem nada aqui ksksk
+	get_tree().change_scene_to_file("res://scenes/cntrols_scenes/credits.tscn")
 
 
 func _on_exit_pressed():

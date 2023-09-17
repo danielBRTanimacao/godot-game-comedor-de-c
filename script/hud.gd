@@ -11,5 +11,5 @@ func _ready():
 func _process(delta):
 	counter.text = str(Global.orb)
 	if Global.orb == 7:
-		get_tree().change_scene_to_file("res://scenes/boneco.tscn") #vc ganhou
+		get_tree().change_scene_to_file("res://scenes/cntrols_scenes/victory.tscn") #vc ganhou
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
