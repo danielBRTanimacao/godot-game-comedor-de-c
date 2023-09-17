@@ -2,8 +2,8 @@
 
 <h3>Um pouco sobre o jogo</h3>
 
-Jogo feito na godot engine, ainda estou aprendendo a criar jogos, e a maior parte desse jogo foi feita utilizando de tutoriais...
-uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuito... o jogo ainda está em desenvolvimento
+Jogo feito na **godot engine**, ainda estou aprendendo a criar jogos, e a maior parte desse jogo foi feita utilizando de tutoriais...
+uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuito... **o jogo ainda está em desenvolvimento**
 
 ### Softwares | sites utilizados 
 - photoshop
