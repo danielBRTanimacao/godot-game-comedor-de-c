@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dhw3ptsuuj4f4"]
+[gd_scene load_steps=2 format=3 uid="uid://dhw3ptsuuj4f4"]
+
+[ext_resource type="Script" path="res://script/credits.gd" id="1_cf2ma"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -7,3 +9,93 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cf2ma")
+
+[node name="main" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.0
+offset_top = 94.0
+offset_right = 255.0
+offset_bottom = 125.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="explicação" type="HBoxContainer" parent="main"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="main/explicação"]
+layout_mode = 2
+text = "Jogo criado com base na musica comedor de cu - canal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="klebercanal" type="Button" parent="main/explicação" groups=["buttom"]]
+layout_mode = 2
+focus_mode = 0
+text = "Kleberiano"
+
+[node name="creditMusic" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="canalmusico" type="HBoxContainer" parent="creditMusic"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="creditMusic/canalmusico"]
+layout_mode = 2
+text = "Música menu - "
+
+[node name="canal_musico" type="Button" parent="creditMusic/canalmusico" groups=["buttom"]]
+layout_mode = 2
+focus_mode = 0
+text = "Mob Generico"
+
+[node name="creditfinal" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -297.0
+offset_top = -135.0
+offset_right = 357.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="meuscreditos" type="HBoxContainer" parent="creditfinal"]
+layout_mode = 2
+
+[node name="canal" type="Label" parent="creditfinal/meuscreditos"]
+layout_mode = 2
+text = "O resto do jogo foi feito por eu mesmo :) utilizando de tutoriais e claro ksksks"
+
+[node name="voltar_menu" type="Button" parent="." groups=["buttom"]]
+layout_mode = 2
+offset_left = 247.0
+offset_top = 263.0
+offset_right = 403.0
+offset_bottom = 294.0
+size_flags_vertical = 4
+focus_mode = 0
+text = "voltar para o menu"
+
+[connection signal="pressed" from="main/explicação/klebercanal" to="." method="_on_klebercanal_pressed"]
+[connection signal="pressed" from="creditMusic/canalmusico/canal_musico" to="." method="_on_canal_musico_pressed"]
+[connection signal="pressed" from="voltar_menu" to="." method="_on_voltar_menu_pressed"]
