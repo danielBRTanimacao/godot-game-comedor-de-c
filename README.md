@@ -25,4 +25,3 @@ uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuit
 
 - <a href="https://www.youtube.com/@CanalKleberiano">Canal kleberiano</a>
 - <a href="https://www.youtube.com/channel/UCS88R5WOovJNe3NtS0OhUfg">Meu canal :3</a>
-- <a href="https://www.youtube.com/@MobGenerico">Canal Mob Genérico</a>
