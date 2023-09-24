@@ -5,7 +5,7 @@
 Resumindo... O jogo se passa em uma floresta onde o jogador tem que coletar "mac's poh@" para conseguir escapar do monstro kkkk
 
 Feito na **godot engine**, ainda estou aprendendo a criar jogos, e a maior parte desse jogo foi feita utilizando de tutoriais...
-uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuito... **o jogo esta na versão final, provavelmente não vou atualizar mais**
+uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuito... **o jogo esta na versão final, provavelmente não vou atualizar mais...**
 
 ### Softwares | sites utilizados 
 - photoshop
@@ -13,6 +13,7 @@ uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuit
 - godot engine
 - mixamo
 - material texture
+- laighter
   
 ## Screenshots
 
