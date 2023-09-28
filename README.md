@@ -1,4 +1,4 @@
-# Fan game: jogo do comedor de c# <img width="40" height="40" src="https://github.com/danielBRTanimacao/godot-game-comedor-de-c/assets/93400508/cba20c02-afa1-47c0-8cd0-49e367905b6e"/>
+# Fan game: jogo do comedor de c# <img width="40" height="40" src="https://github.com/danielBRTanimacao/godot-game-comedor-de-c/assets/93400508/ea400dfe-1339-4414-b53a-791fb2fa8383"/>
 
 ### Outros sites para baixar o jogo
 
