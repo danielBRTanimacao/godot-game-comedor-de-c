@@ -13,9 +13,9 @@ uma boa parte das artes foram feitas por mim :) ele esta aqui totalmente gratuit
 
 ## Screenshots
 
-<img src="https://github.com/danielBRTanimacao/godot-game-comedor-de-c/assets/93400508/ad5a6993-c6d7-4528-8c47-fb0e1b4bc5b2"/>
-<img src="https://github.com/danielBRTanimacao/godot-game-comedor-de-c/assets/93400508/7c26b7db-6442-4a94-b156-7761e373be56"/>
-<img src="https://github.com/danielBRTanimacao/godot-game-comedor-de-c/assets/93400508/ca72e486-ed29-4e84-875b-7bdd3a1f0bb5"/>
+<img src=""/>
+<img src=""/>
+<img src=""/>
 
 ## Como jogar?
 
